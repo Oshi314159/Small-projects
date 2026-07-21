@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 int main() {
   /* Be at least 8 characters
@@ -11,6 +12,9 @@ int main() {
   std::string password;
 
   while (!containsNumber || !containsCharacter || !hasValidLength) {
+    hasValidLength = false;
+    containsNumber = false;
+    containsCharacter = false;
 
     std::cout << "Enter a password: ";
     std::cin >> password;
@@ -29,5 +33,7 @@ int main() {
       std::cout << "❌ Password must include a special character." << std::endl;
     }
   }
+  
   std::cout << "✅ Valid password!" << std::endl;
+  return 0;
 }

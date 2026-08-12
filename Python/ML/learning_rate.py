@@ -34,9 +34,9 @@ revenue = [52, 74, 79, 95, 115, 110, 129, 126, 147, 146, 156, 184]
 
 b = 0
 m = 0
-learning_rate = 1000
+epochs = 1000
 
-for i in range(learning_rate):
+for i in range(epochs):
     b, m = step_gradient(months, revenue, b, m)
 
 y = []

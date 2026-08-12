@@ -20,13 +20,21 @@ def get_gradient_at_m(x, y, b, m):
     m_gradient = -(2/N) * diff
     return m_gradient
 
-def step_gradient(x, y, b_current, m_current):
+def step_gradient(x, y, b_current, m_current, learning_rate):
     b_gradient = get_gradient_at_b(x, y, b_current, m_current)
     m_gradient = get_gradient_at_m(x, y, b_current, m_current)
     
-    b = b_current - (0.01 * b_gradient)
-    m = m_current - (0.01 * m_gradient)
+    b = b_current - (learning_rate * b_gradient)
+    m = m_current - (learning_rate * m_gradient)
     
+    return b, m
+
+def gradient_descent(x, y, learning_rate, epochs):  
+    b = 0
+    m = 0
+    for i in range(epochs):
+        b, m = step_gradient(x, y, b, m, learning_rate)
+
     return b, m
 
 months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -34,10 +42,7 @@ revenue = [52, 74, 79, 95, 115, 110, 129, 126, 147, 146, 156, 184]
 
 b = 0
 m = 0
-epochs = 1000
-
-for i in range(epochs):
-    b, m = step_gradient(months, revenue, b, m)
+b, m = gradient_descent(months, revenue, 0.01, 5000)
 
 y = []
 for x_val in (months):

@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-
 x = [1, 2, 3]
 y = [5, 1, 3]
 y_predicted1 = [1, 2, 3]

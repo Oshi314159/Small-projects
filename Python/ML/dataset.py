@@ -19,3 +19,11 @@ mlr = LR()
 mlr.fit(x_train, y_train)
 y_predict = mlr.predict(x_test)
 print(f"Predicted rent: ${y_predict[0][0]:.2f}")
+
+plt.axis()
+plt.xlabel("Prices")
+plt.ylabel("Predicted prices")
+plt.title("Actual Rent vs Predicted Rent")
+
+plt.scatter(y_test, y_predict, alpha = 0.4)
+plt.show()
